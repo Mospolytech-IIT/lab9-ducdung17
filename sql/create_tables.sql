@@ -1,0 +1,16 @@
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL
+);
+
+
+CREATE TABLE posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users (id)
+);
